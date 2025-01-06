@@ -1,5 +1,7 @@
-const { NotImplementedError } = require('../extensions/index.js');
+"use strict";
 
+var _require = require('../extensions/index.js'),
+    NotImplementedError = _require.NotImplementedError;
 /**
  * The MAC-48 address is six groups of two hexadecimal digits (0 to 9 or A to F),
  * separated by hyphens.
@@ -14,11 +16,13 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For 00-1B-63-84-45-E6, the output should be true.
  *
  */
-function isMAC48Address(n) {
-  const array = n.split('-');
-  const regExp = /^[0-9A-Fa-f]+$/;
 
-  for (let i = 0; i < array.length; i++) {
+
+function isMAC48Address(n) {
+  var array = n.split('-');
+  var regExp = /^[0-9A-Fa-f]+$/;
+
+  for (var i = 0; i < array.length; i++) {
     if (regExp.test(array[i]) === false) {
       return false;
     }
@@ -26,6 +30,7 @@ function isMAC48Address(n) {
 
   return true;
 }
+
 module.exports = {
-  isMAC48Address,
+  isMAC48Address: isMAC48Address
 };
