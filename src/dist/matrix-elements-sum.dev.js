@@ -1,7 +1,5 @@
 "use strict";
 
-function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
-
 var _require = require('../extensions/index.js'),
     NotImplementedError = _require.NotImplementedError;
 /**
@@ -27,8 +25,10 @@ function getMatrixElementsSum(matrix) {
 
   for (var i = 0; i < matrix.length; i += 1) {
     for (var j = 0; j < matrix[i].length; j += 1) {
-      if (matrix[i - 1][j] !== 0) {
-        result += (_readOnlyError("result"), matrix[i][j]);
+      if (i === 0) {
+        result += matrix[i][j];
+      } else if (i !== 0 && matrix[i - 1][j] !== 0) {
+        result += matrix[i][j];
       }
     }
   }
