@@ -1,5 +1,7 @@
-const { NotImplementedError } = require('../extensions/index.js');
+"use strict";
 
+var _require = require('../extensions/index.js'),
+    NotImplementedError = _require.NotImplementedError;
 /**
  * In the popular Minesweeper game you have a board with some mines and those cells
  * that don't contain a mine have a number in it that indicates the total number of mines
@@ -23,26 +25,24 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
+
+
 function minesweeper(matrix) {
-  const result = [];
+  var result = [];
 
-  for (let i = 0; i < matrix.length; i++) {
+  for (var i = 0; i < matrix.length; i++) {
     result[i] = [];
-    for (let j = 0; j < matrix[i].length; j++) {
-      let count = 0;
 
-      for (let x = -1; x <= 1; x++) {
-        for (let y = -1; y <= 1; y++) {
+    for (var j = 0; j < matrix[i].length; j++) {
+      var count = 0;
+
+      for (var x = -1; x <= 1; x++) {
+        for (var y = -1; y <= 1; y++) {
           if (x === 0 && y === 0) continue;
-          const neighborRow = i + x;
-          const neighborCol = j + y;
+          var neighborRow = i + x;
+          var neighborCol = j + y;
 
-          if (
-            neighborRow >= 0 &&
-            neighborRow < matrix.length &&
-            neighborCol >= 0 &&
-            neighborCol < matrix[i].length
-          ) {
+          if (neighborRow >= 0 && neighborRow < matrix.length && neighborCol >= 0 && neighborCol < matrix[i].length) {
             if (matrix[neighborRow][neighborCol]) {
               count++;
             }
@@ -58,5 +58,5 @@ function minesweeper(matrix) {
 }
 
 module.exports = {
-  minesweeper,
+  minesweeper: minesweeper
 };
