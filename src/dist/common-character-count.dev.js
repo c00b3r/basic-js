@@ -1,5 +1,7 @@
-const { NotImplementedError } = require('../extensions/index.js');
+"use strict";
 
+var _require = require('../extensions/index.js'),
+    NotImplementedError = _require.NotImplementedError;
 /**
  * Given two strings, find the number of common characters between them.
  *
@@ -11,18 +13,20 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For s1 = "aabcc" and s2 = "adcaa", the output should be 3
  * Strings have 3 common characters - 2 "a"s and 1 "c".
  */
-function getCommonCharacterCount(s1, s2) {
-  const array1 = s1.split('');
-  const array2 = s2.split('');
-  const obj1 = {};
-  const obj2 = {};
-  let result = 0;
 
-  for (let i = 0; i < array1.length; i += 1) {
+
+function getCommonCharacterCount(s1, s2) {
+  var array1 = s1.split('');
+  var array2 = s2.split('');
+  var obj1 = {};
+  var obj2 = {};
+  var result = 0;
+
+  for (var i = 0; i < array1.length; i += 1) {
     obj1[array1[i]] = (obj1[array1[i]] || 0) + 1;
   }
 
-  for (let j = 0; j < array2.length; j += 1) {
+  for (var j = 0; j < array2.length; j += 1) {
     obj2[array2[j]] = (obj2[array2[j]] || 0) + 1;
   }
 
@@ -39,5 +43,5 @@ function getCommonCharacterCount(s1, s2) {
 }
 
 module.exports = {
-  getCommonCharacterCount,
+  getCommonCharacterCount: getCommonCharacterCount
 };
