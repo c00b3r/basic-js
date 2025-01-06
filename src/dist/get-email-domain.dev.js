@@ -1,5 +1,7 @@
-const { NotImplementedError } = require('../extensions/index.js');
+"use strict";
 
+var _require = require('../extensions/index.js'),
+    NotImplementedError = _require.NotImplementedError;
 /**
  * Given an email address, return it's domain.
  *
@@ -10,11 +12,13 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For the input 'prettyandsimple@example.com', the output should be 'example.com'
  *
  */
+
+
 function getEmailDomain(email) {
-  const resultArray = email.split('@');
+  var resultArray = email.split('@');
   return resultArray[resultArray.length - 1];
 }
 
 module.exports = {
-  getEmailDomain,
+  getEmailDomain: getEmailDomain
 };
